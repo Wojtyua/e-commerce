@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
 import { categories } from "@/data";
@@ -36,10 +36,19 @@ const Navbar = () => {
           />
         </div>
       </Container>
-      <AnimatePresence mode="wait">
-        {/* Dodanie animacji do zamknięcia menu */}
+      <AnimatePresence>
         {isMenuOpen && (
-          <MobileNav toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} />
+          <>
+            <motion.div
+              className="fixed top-0 h-screen w-screen bg-black bg-opacity-5 backdrop-blur-sm z-10 md:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.1, duration: 0.2 }}
+              exit={{ opacity: 0 }}
+              onClick={toggleMenu}
+            ></motion.div>
+            <MobileNav toggleMenu={toggleMenu} categories={categories} />
+          </>
         )}
       </AnimatePresence>
     </div>
