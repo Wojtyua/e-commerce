@@ -4,12 +4,15 @@ import { IoCloseOutline } from "react-icons/io5";
 import { menuSlide } from "@/lib/animations";
 import { Category } from "@/types";
 import Link from "next/link";
+import { Button } from "../ui/button";
+import Cart from "../cart";
 
 type MobileNavProps = {
   toggleMenu: () => void;
   categories: Category[];
 };
 
+// REFACTOR IS NEEDED!!!
 const MobileNav = ({ toggleMenu, categories }: MobileNavProps) => {
   return (
     <motion.aside
@@ -26,16 +29,19 @@ const MobileNav = ({ toggleMenu, categories }: MobileNavProps) => {
           className="md:hidden ml-2 sm:ml-3"
         />
       </div>
-      <div className="flex flex-col text-2xl space-y-4 font-medium py-2 px-10">
+      <div className="flex flex-col text-2xl space-y-12 font-medium py-2 px-10">
         {/* To bedzie można wywalic albo zrobić jakos inaczej */}
-        <Link href="/new">New & Recomended</Link>
-        {categories.map((category) => (
-          <Link key={category.id} href={`/category/${category.id}`}>
-            {category.name}
-          </Link>
-        ))}
+        <div className="flex flex-col space-y-4">
+          <Link href="/new">New & Recomended</Link>
+          {categories.map((category) => (
+            <Link key={category.id} href={`/category/${category.id}`}>
+              {category.name}
+            </Link>
+          ))}
+        </div>
+
         {/* login or register */}
-        <div>
+        <div className="space-y-3">
           <p className="text-neutral-500 text-lg">
             {/* to zmienic */}
             Become a{" "}
@@ -44,6 +50,28 @@ const MobileNav = ({ toggleMenu, categories }: MobileNavProps) => {
             </span>{" "}
             member and get exclusive offers and discounts
           </p>
+          <div className="flex space-x-2">
+            <Button variant="secondary">Log in</Button>
+            <Button>Register</Button>
+          </div>
+        </div>
+        <div className="text-base font-semibold">
+          <Link href="/cart" className="flex items-center gap-2">
+            <Cart />
+            <p>Cart</p>
+          </Link>
+          <Link href="/cart" className="flex items-center gap-2">
+            <Cart />
+            <p>Cart</p>
+          </Link>
+          <Link href="/cart" className="flex items-center gap-2">
+            <Cart />
+            <p>Cart</p>
+          </Link>
+          <Link href="/cart" className="flex items-center gap-2">
+            <Cart />
+            <p>Cart</p>
+          </Link>
         </div>
       </div>
     </motion.aside>
