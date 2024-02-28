@@ -4,19 +4,19 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
-import { Category } from "@/types";
+import { Link as LinkType } from "@/types";
 
 type MainNavProps = {
-  data: Category[];
+  data: LinkType[];
 };
 
 const MainNav = ({ data }: MainNavProps) => {
   const pathname = usePathname();
 
   const routes = data.map((route) => ({
-    href: `/category'${route.id}`,
-    label: route.name,
-    active: pathname === `/category/${route.id}`,
+    href: `${route.href}`,
+    label: route.label,
+    active: pathname === `${route.href}`,
   }));
 
   return (

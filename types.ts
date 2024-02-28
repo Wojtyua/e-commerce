@@ -1,4 +1,5 @@
-export type Category = {
+export type Link = {
   id: string;
-  name: string;
+  label: string;
+  href: string;
 };

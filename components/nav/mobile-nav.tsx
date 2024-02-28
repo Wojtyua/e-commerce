@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import IconButton from "../icon-button";
+import IconButton from "../ui/icon-button";
 import { IoCloseOutline } from "react-icons/io5";
 import { menuSlide } from "@/lib/animations";
 import { Category } from "@/types";
 import Link from "next/link";
 import { Button } from "../ui/button";
-import Cart from "../cart";
+import Cart from "../ui/cart-button";
 
 type MobileNavProps = {
   toggleMenu: () => void;

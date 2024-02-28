@@ -1,11 +1,13 @@
+import Brandings from "@/components/brandings";
+import HeroSection from "@/components/hero";
+import Container from "@/components/ui/container";
+
 const HomePage = () => {
   return (
-    <section className="grid grid-cols-2 items-center justify-center">
-      <h1 className="text-2xl font-semibold tracking-wider">
-        The best of the best
-      </h1>
-      <p>huj w du</p>
-    </section>
+    <Container>
+      <HeroSection />
+      <Brandings />
+    </Container>
   );
 };
 

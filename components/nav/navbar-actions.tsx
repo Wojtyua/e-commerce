@@ -4,8 +4,8 @@ import { CiHeart } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
 
 import SearchBar from "@/components/search-bar";
-import IconButton from "@/components/icon-button";
-import Cart from "@/components/cart";
+import IconButton from "@/components/ui/icon-button";
+import Cart from "@/components/ui/cart-button";
 
 const NavbarActions = () => {
   return (

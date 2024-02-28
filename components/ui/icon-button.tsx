@@ -1,17 +1,19 @@
+import { MouseEventHandler } from "react";
+
 type IconButtonProps = {
-  icon: React.ReactNode;
+  icon: React.ReactElement;
   className?: string;
   onClick: () => void;
 };
 
 const IconButton = ({ icon, className, onClick }: IconButtonProps) => {
   return (
-    <div
+    <button
       onClick={onClick}
       className={`size-9 rounded-full hover:bg-neutral-200 flex items-center justify-center transition-colors ${className}`}
     >
       {icon}
-    </div>
+    </button>
   );
 };
 

@@ -6,9 +6,9 @@ import Link from "next/link";
 import { categories } from "@/data";
 
 import Container from "@/components/ui/container";
-import MainNav from "@/components/main-nav";
+import MainNav from "@/components/nav/main-nav";
 import NavbarActions from "@/components/nav/navbar-actions";
-import IconButton from "@/components/icon-button";
+import IconButton from "@/components/ui/icon-button";
 import MobileNav from "@/components/nav/mobile-nav";
 
 import { CiMenuBurger } from "react-icons/ci";

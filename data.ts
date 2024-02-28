@@ -1,16 +1,19 @@
-import { Category } from "./types";
+import { Link } from "./types";
 
-export const categories: Category[] = [
+export const categories: Link[] = [
   {
     id: "1",
-    name: "Men",
+    label: "Men",
+    href: "/men",
   },
   {
     id: "2",
-    name: "Women",
+    label: "Women",
+    href: "/women",
   },
   {
     id: "3",
-    name: "Kids",
+    label: "Kids",
+    href: "/kids",
   },
 ];
