@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 import IconButton from "../ui/icon-button";
 import { IoCloseOutline } from "react-icons/io5";
 import { menuSlide } from "@/lib/animations";
-import { Category } from "@/types";
+import { Link as LinkType } from "@/types";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import Cart from "../ui/cart-button";
 
 type MobileNavProps = {
   toggleMenu: () => void;
-  categories: Category[];
+  categories: LinkType[];
 };
 
 // REFACTOR IS NEEDED!!!
@@ -34,8 +34,12 @@ const MobileNav = ({ toggleMenu, categories }: MobileNavProps) => {
         <div className="flex flex-col space-y-4">
           <Link href="/new">New & Recomended</Link>
           {categories.map((category) => (
-            <Link key={category.id} href={`/category/${category.id}`}>
-              {category.name}
+            <Link
+              onClick={toggleMenu}
+              key={category.id}
+              href={`${category.href}`}
+            >
+              {category.label}
             </Link>
           ))}
         </div>
