@@ -1,7 +1,7 @@
 import React from "react";
 
-const WomanPage = () => {
-  return <div>WomanPage</div>;
+const WomenPage = () => {
+  return <div>Women Page</div>;
 };
 
-export default WomanPage;
+export default WomenPage;
