@@ -5,6 +5,7 @@ import Footer from "@/components/footer";
 
 import "./globals.css";
 import Navbar from "@/components/navbar";
+import Container from "@/components/ui/container";
 
 // POEKSPERYMENTUJ PÓŹNIEJ ZE ZMIANĄ NA INNY FONT
 const font = Urbanist({ subsets: ["latin"] });
@@ -23,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <Navbar />
-        {children}
+        <Container>{children}</Container>
 
         <Footer />
       </body>
