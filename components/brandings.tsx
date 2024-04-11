@@ -3,7 +3,7 @@ import Image from "next/image";
 const Brandings = () => {
   return (
     <section className="p-4 border-b mb-4">
-      <h2 className="text-xl font-semibold mt-4">
+      <h2 className="text-2xl font-semibold mt-4">
         We work with the best brandings
       </h2>
 
