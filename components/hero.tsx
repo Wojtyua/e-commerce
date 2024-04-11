@@ -21,7 +21,7 @@ const HeroSection = () => {
           className="rounded-md"
         />
         <Image
-          src="/images/image_placeholder.webp"
+          src="https://jjsxonvnqwdwhjqmqihm.supabase.co/storage/v1/object/public/sneakers/dunk.png?t=2024-04-11T11%3A33%3A22.238Z.png"
           alt="image placeholder"
           height={300}
           width={600}
