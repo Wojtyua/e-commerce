@@ -6,6 +6,7 @@ import Footer from "@/components/footer";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Container from "@/components/ui/container";
+import Provider from "@/util/providers";
 
 // POEKSPERYMENTUJ PÓŹNIEJ ZE ZMIANĄ NA INNY FONT
 const font = Urbanist({ subsets: ["latin"] });
@@ -23,10 +24,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <Navbar />
-        <Container>{children}</Container>
+        {/* This provider provides the React Query client to the entire application. */}
+        <Provider>
+          <Navbar />
+          {children}
 
-        <Footer />
+          <Footer />
+        </Provider>
       </body>
     </html>
   );

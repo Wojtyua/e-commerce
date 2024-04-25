@@ -23,7 +23,7 @@ const HeroSection = () => {
           className="rounded-md"
         />
         <Image
-          src="https://jjsxonvnqwdwhjqmqihm.supabase.co/storage/v1/object/public/sneakers/dunk.png?t=2024-04-11T11%3A33%3A22.238Z.png"
+          src="https://jjsxonvnqwdwhjqmqihm.supabase.co/storage/v1/object/public/productsImages/nike-dunk-low-retro-2.webp?t=2024-04-25T18%3A16%3A39.009Z"
           alt="image placeholder"
           height={300}
           width={600}
