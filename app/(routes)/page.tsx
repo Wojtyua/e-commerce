@@ -1,5 +1,5 @@
-import Brandings from "@/components/brandings";
-import HeroSection from "@/components/hero";
+import Brandings from "@/components/Brandings";
+import HeroSection from "@/components/Hero";
 
 const HomePage = () => {
   return (

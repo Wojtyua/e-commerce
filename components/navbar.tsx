@@ -7,10 +7,10 @@ import Link from "next/link";
 
 import { categories } from "@/data";
 
-import MainNav from "@/components/nav/main-nav";
-import NavbarActions from "@/components/nav/navbar-actions";
-import IconButton from "@/components/ui/icon-button";
-import MobileNav from "@/components/nav/mobile-nav";
+import MainNav from "@/components/nav/MainNav";
+import NavbarActions from "@/components/nav/NavbarActions";
+import IconButton from "@/components/ui/IconButton";
+import MobileNav from "@/components/nav/MobileNav";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

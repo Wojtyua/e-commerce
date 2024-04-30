@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 
 import { Urbanist } from "next/font/google";
 
-import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
-import Provider from "@/util/providers";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 import "./globals.css";
-import Container from "@/components/ui/container";
+import ReactQueryProvider from "@/providers/reactQueryProvider";
 
 // POEKSPERYMENTUJ PÓŹNIEJ ZE ZMIANĄ NA INNY FONT
 const font = Urbanist({ subsets: ["latin"] });
@@ -25,14 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        {/* This provider provides the React Query client to the entire application. */}
-        <Provider>
-          <Container>
-            <Navbar />
-            <main>{children}</main>
-          </Container>
-          <Footer />
-        </Provider>
+        <Navbar />
+        <ReactQueryProvider>
+          <main>{children}</main>
+        </ReactQueryProvider>
+        <Footer />
       </body>
     </html>
   );

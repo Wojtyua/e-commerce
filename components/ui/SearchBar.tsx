@@ -1,4 +1,4 @@
-import IconButton from "./ui/icon-button";
+import IconButton from "./IconButton";
 import { CiSearch } from "react-icons/ci";
 
 const SearchBar = () => {

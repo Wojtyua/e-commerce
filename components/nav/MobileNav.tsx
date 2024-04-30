@@ -1,18 +1,45 @@
 import { motion } from "framer-motion";
-import IconButton from "../ui/icon-button";
-import { IoCloseOutline } from "react-icons/io5";
 import { menuSlide } from "@/lib/animations";
 import { Link as LinkType } from "@/types";
 import Link from "next/link";
-import { Button } from "../ui/button";
-import Cart from "../ui/cart-button";
+
+import { IoCloseOutline } from "react-icons/io5";
+import { CiHeart, CiUser } from "react-icons/ci";
+import { PiShoppingBagLight } from "react-icons/pi";
 import { CiSearch } from "react-icons/ci";
-import NavbarActions from "./navbar-actions";
+
+import { Button } from "../ui/Button";
+import IconButton from "../ui/IconButton";
 
 type MobileNavProps = {
   toggleMenu: () => void;
   categories: LinkType[];
 };
+
+const structure = [
+  {
+    icon: <CiSearch size={25} />,
+    action: () => {},
+    label: "Search",
+  },
+  {
+    icon: <CiHeart size={25} />,
+    action: () => {},
+    label: "Wishlist",
+  },
+  {
+    icon: <PiShoppingBagLight size={25} />,
+    action: () => {
+      console.log("clicked shopping bag");
+    },
+    label: "Cart",
+  },
+  {
+    icon: <CiUser size={25} />,
+    action: () => {},
+    label: "Profile",
+  },
+];
 
 // REFACTOR IS NEEDED!!!
 const MobileNav = ({ toggleMenu, categories }: MobileNavProps) => {
@@ -62,7 +89,15 @@ const MobileNav = ({ toggleMenu, categories }: MobileNavProps) => {
           </div>
         </div>
         <div className="text-base font-semibold">
-          <NavbarActions isMobile={true} />
+          {structure.map((item, index) => (
+            <div key={index}>
+              <IconButton
+                icon={item.icon}
+                onClick={item.action}
+                label={item.label}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </motion.aside>
