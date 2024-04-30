@@ -1,9 +1,7 @@
-import { MouseEventHandler } from "react";
-
 type IconButtonProps = {
   icon: React.ReactElement;
   className?: string;
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 const IconButton = ({ icon, className, onClick }: IconButtonProps) => {

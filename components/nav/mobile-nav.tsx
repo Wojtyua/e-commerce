@@ -6,6 +6,8 @@ import { Link as LinkType } from "@/types";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import Cart from "../ui/cart-button";
+import { CiSearch } from "react-icons/ci";
+import NavbarActions from "./navbar-actions";
 
 type MobileNavProps = {
   toggleMenu: () => void;
@@ -60,22 +62,7 @@ const MobileNav = ({ toggleMenu, categories }: MobileNavProps) => {
           </div>
         </div>
         <div className="text-base font-semibold">
-          <Link href="/cart" className="flex items-center gap-2">
-            <Cart />
-            <p>Cart</p>
-          </Link>
-          <Link href="/cart" className="flex items-center gap-2">
-            <Cart />
-            <p>Cart</p>
-          </Link>
-          <Link href="/cart" className="flex items-center gap-2">
-            <Cart />
-            <p>Cart</p>
-          </Link>
-          <Link href="/cart" className="flex items-center gap-2">
-            <Cart />
-            <p>Cart</p>
-          </Link>
+          <NavbarActions isMobile={true} />
         </div>
       </div>
     </motion.aside>

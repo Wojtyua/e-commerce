@@ -16,17 +16,10 @@ const HeroSection = () => {
       <div className="order-1">
         {/* przerobić na odddzielny komponent */}
         <Image
-          src="/images/image_placeholder.webp"
+          src="/images/landing_page.jpg"
           alt="image placeholder"
           width={400}
           height={200}
-          className="rounded-md"
-        />
-        <Image
-          src="https://jjsxonvnqwdwhjqmqihm.supabase.co/storage/v1/object/public/productsImages/nike-dunk-low-retro-2.webp?t=2024-04-25T18%3A16%3A39.009Z"
-          alt="image placeholder"
-          height={300}
-          width={600}
           className="rounded-md"
         />
       </div>
