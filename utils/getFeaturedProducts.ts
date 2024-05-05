@@ -9,33 +9,30 @@ export const getFeaturedProducts = async () => {
       model,
       price,
       product_images (
-        image_id,
-        images (
-          id,
-          image_url
-        )
+        images(*)
       )
     `
     )
-    .eq("featured", true)
-    .order("created_at", { ascending: false });
+    .eq("featured", true);
 
   if (error) {
     console.error("Error fetching featured products:", error.message);
     return [];
   }
 
-  if (data) {
-    // Flatten the data to include image URLs directly within each product object
-    const formattedData = data.map((product) => {
-      const imageUrls = product.product_images.map((pi) => pi.images.image_url);
-      return {
-        ...product,
-        imageUrls,
-      };
-    });
-    return formattedData;
+  // Ensure data is an array before mapping it
+  if (!data) {
+    return [];
   }
 
-  return [];
+  // Map through the data to format it, extracting only the first image URL
+  const formattedData = data.map((product) => ({
+    id: product.id,
+    model: product.model,
+    price: product.price,
+    image_url: product.product_images[0].images?.image_url,
+  }));
+
+  // Return the formatted data instead of the raw data
+  return formattedData;
 };
