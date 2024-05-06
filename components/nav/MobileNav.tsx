@@ -8,7 +8,7 @@ import { CiHeart, CiUser } from "react-icons/ci";
 import { PiShoppingBagLight } from "react-icons/pi";
 import { CiSearch } from "react-icons/ci";
 
-import { Button } from "../ui/Button";
+import { Button } from "../ui/button";
 import IconButton from "../ui/IconButton";
 
 type MobileNavProps = {
