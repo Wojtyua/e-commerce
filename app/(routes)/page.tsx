@@ -7,6 +7,7 @@ import Brandings from "@/components/Brandings";
 import Featured from "@/components/Featured";
 import HeroSection from "@/components/Hero";
 import { getFeaturedProducts } from "@/utils/getFeaturedProducts";
+import Container from "@/components/Container";
 
 const HomePage = async () => {
   const queryClient = new QueryClient();
@@ -19,10 +20,12 @@ const HomePage = async () => {
   return (
     <>
       <HeroSection />
-      <Brandings />
-      <HydrationBoundary state={dehydrate(queryClient)}>
-        <Featured />
-      </HydrationBoundary>
+      <Container>
+        <Brandings />
+        <HydrationBoundary state={dehydrate(queryClient)}>
+          <Featured />
+        </HydrationBoundary>
+      </Container>
     </>
   );
 };
