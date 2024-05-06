@@ -3,7 +3,7 @@ type ContainerProps = {
 };
 
 const Container = ({ children }: ContainerProps) => {
-  return <div className="flex flex-col my-8 gap-8">{children}</div>;
+  return <div className="flex flex-col my-10 gap-10">{children}</div>;
 };
 
 export default Container;

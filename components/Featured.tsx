@@ -11,6 +11,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
+import SectionHeader from "./ui/SectionHeader";
 
 const Featured = () => {
   const { data } = useQuery({
@@ -19,7 +20,8 @@ const Featured = () => {
     staleTime: 1000 * 60 * 5,
   });
   return (
-    <div className="px-3 w-full relative">
+    <section className="px-3 w-full relative">
+      <SectionHeader title="Featured products" />
       <Carousel className="">
         <div className="absolute top-0 right-0">
           {/* <CarouselPrevious />
@@ -45,7 +47,7 @@ const Featured = () => {
           <CarouselItem className="basis-1/3">Placeholder</CarouselItem>
         </CarouselContent>
       </Carousel>
-    </div>
+    </section>
   );
 };
 
