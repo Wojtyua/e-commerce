@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      backgroundImage: {
+        landing: "url('/images/landing_page_2.jpg')",
+      },
       colors: {
         "black-primary": "#111111",
         border: "hsl(var(--border))",

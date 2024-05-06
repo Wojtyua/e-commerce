@@ -22,8 +22,8 @@ const Featured = () => {
     <div className="px-3 w-full relative">
       <Carousel className="">
         <div className="absolute top-0 right-0">
-          <CarouselPrevious />
-          <CarouselNext />
+          {/* <CarouselPrevious />
+          <CarouselNext /> */}
         </div>
 
         <CarouselContent>
