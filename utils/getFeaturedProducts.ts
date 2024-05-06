@@ -1,5 +1,12 @@
 import supabase from "@/services/supabase";
 
+type FeaturedProduct = {
+  id: string;
+  model: string;
+  price: number;
+  image_url: string;
+};
+
 export const getFeaturedProducts = async () => {
   const { data, error } = await supabase
     .from("products")
@@ -26,11 +33,11 @@ export const getFeaturedProducts = async () => {
   }
 
   // Map through the data to format it, extracting only the first image URL
-  const formattedData = data.map((product) => ({
+  const formattedData: FeaturedProduct[] = data.map((product) => ({
     id: product.id,
     model: product.model,
     price: product.price,
-    image_url: product.product_images[0].images?.image_url,
+    image_url: product.product_images[0]?.images?.image_url,
   }));
 
   // Return the formatted data instead of the raw data

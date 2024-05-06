@@ -1,12 +1,11 @@
 "use client";
 
 import { getFeaturedProducts } from "@/utils/getFeaturedProducts";
-// import { getProducts } from "@/utils/getProducts";
 import { useQuery } from "@tanstack/react-query";
 
 const Featured = () => {
   const { data } = useQuery({
-    queryKey: ["products"],
+    queryKey: ["featuredProducts"],
     queryFn: getFeaturedProducts,
     staleTime: 1000 * 60 * 5,
   });
