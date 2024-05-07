@@ -12,7 +12,7 @@ import ReactQueryProvider from "@/providers/reactQueryProvider";
 const font = Urbanist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Best Sneakers Shop",
+  title: "SneakPeak | Sneakers Store",
   description: "Store with the best sneakers in the world",
 };
 

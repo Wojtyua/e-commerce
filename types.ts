@@ -3,3 +3,8 @@ export type Link = {
   label: string;
   href: string;
 };
+
+export type Brand = {
+  name: string;
+  logo: string;
+};
