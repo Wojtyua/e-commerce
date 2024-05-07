@@ -5,6 +5,7 @@ type FeaturedProduct = {
   model: string;
   price: number;
   image_url: string;
+  target_group: string;
 };
 
 export const getFeaturedProducts = async () => {
@@ -17,7 +18,8 @@ export const getFeaturedProducts = async () => {
       price,
       product_images (
         images(*)
-      )
+      ),
+      variants (*)
     `
     )
     .eq("featured", true);
@@ -38,6 +40,7 @@ export const getFeaturedProducts = async () => {
     model: product.model,
     price: product.price,
     image_url: product.product_images[0]?.images?.image_url,
+    target_group: product.variants[0]?.target_group,
   }));
 
   // Return the formatted data instead of the raw data

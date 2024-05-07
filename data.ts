@@ -11,11 +11,6 @@ export const categories: Link[] = [
     label: "Women",
     href: "/women",
   },
-  {
-    id: "3",
-    label: "Kids",
-    href: "/kids",
-  },
 ];
 
 export const brands: Brand[] = [

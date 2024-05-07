@@ -21,25 +21,35 @@ const Featured = () => {
   });
   return (
     <section className="px-3 w-full relative">
-      <SectionHeader title="Featured products" />
-      <Carousel className="">
-        <div className="absolute top-0 right-0">
-          {/* <CarouselPrevious />
-          <CarouselNext /> */}
-        </div>
+      <SectionHeader title="Featured products" className="mb-24 sm:mb-16 " />
 
+      <Carousel>
+        <div className="absolute -top-12 right-16">
+          <CarouselPrevious />
+          <CarouselNext />
+        </div>
         <CarouselContent>
           {data?.map((product) => (
-            <CarouselItem className="basis-1/3" key={product.id}>
+            <CarouselItem
+              className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
+              key={product.id}
+            >
               <Image
-                className="bg-gray-300"
+                className="bg-gray-100 w-auto h-auto"
                 width={250}
                 height={250}
                 src={product.image_url}
                 alt={product.model}
               />
-              <h3>{product.model}</h3>
-              <p>${product.price}</p>
+              <div className="py-2 space-y-1 tracking-wide">
+                <h3 className="font-bold text-lg capitalize hover:underline hover:cursor-pointer hover:transition">
+                  {product.model}
+                </h3>
+                <p className="text-sm text-neutral-500 first-letter:uppercase">
+                  {product.target_group}&apos;s
+                </p>
+                <p className="text-xl font-semibold">{product.price} zł</p>
+              </div>
             </CarouselItem>
           ))}
           <CarouselItem className="basis-1/3">Placeholder</CarouselItem>
