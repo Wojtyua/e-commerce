@@ -2,6 +2,8 @@
 
 import { getFeaturedProducts } from "@/utils/getFeaturedProducts";
 import { useQuery } from "@tanstack/react-query";
+import ImagePlaceholder from "@/public/images/image_placeholder.webp";
+import Link from "next/link";
 
 import {
   Carousel,
@@ -42,9 +44,12 @@ const Featured = () => {
                 alt={product.model}
               />
               <div className="py-2 space-y-1 tracking-wide">
-                <h3 className="font-bold text-lg capitalize hover:underline hover:cursor-pointer hover:transition">
-                  {product.model}
-                </h3>
+                <Link href={`/products/${product.id}`}>
+                  <h3 className="font-bold text-lg capitalize hover:underline hover:cursor-pointer hover:transition">
+                    {product.model}
+                  </h3>
+                </Link>
+
                 <p className="text-sm text-neutral-500 first-letter:uppercase">
                   {product.target_group}&apos;s
                 </p>
@@ -52,7 +57,24 @@ const Featured = () => {
               </div>
             </CarouselItem>
           ))}
-          <CarouselItem className="basis-1/3">Placeholder</CarouselItem>
+          <CarouselItem className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 ">
+            <Image
+              className="bg-gray-100 w-auto h-auto"
+              width={250}
+              height={250}
+              src={ImagePlaceholder}
+              alt="plachoolder image"
+            />
+            <div className="py-2 space-y-1 tracking-wide flex flex-col ">
+              <h3 className="font-bold text-lg capitalize hover:underline hover:cursor-pointer hover:transition">
+                Buty sportowe
+              </h3>
+              <p className="text-sm text-neutral-500 first-letter:uppercase">
+                man&apos;s
+              </p>
+              <p className="text-xl font-semibold">699.69 zł</p>
+            </div>
+          </CarouselItem>
           <CarouselItem className="basis-1/3">Placeholder</CarouselItem>
           <CarouselItem className="basis-1/3">Placeholder</CarouselItem>
         </CarouselContent>

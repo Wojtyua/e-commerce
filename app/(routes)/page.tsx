@@ -13,7 +13,7 @@ const HomePage = async () => {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ["products"],
+    queryKey: ["featuredProducts"],
     queryFn: getFeaturedProducts,
   });
 
