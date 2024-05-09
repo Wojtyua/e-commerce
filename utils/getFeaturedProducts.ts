@@ -16,10 +16,10 @@ export const getFeaturedProducts = async () => {
       id,
       model,
       price,
+      target_group,
       product_images (
         images(*)
-      ),
-      variants (*)
+      )
     `
     )
     .eq("featured", true);
@@ -39,8 +39,8 @@ export const getFeaturedProducts = async () => {
     id: product.id,
     model: product.model,
     price: product.price,
+    target_group: product.target_group,
     image_url: product.product_images[0]?.images?.image_url,
-    target_group: product.variants[0]?.target_group,
   }));
 
   // Return the formatted data instead of the raw data

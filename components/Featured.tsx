@@ -51,7 +51,7 @@ const Featured = () => {
                 </Link>
 
                 <p className="text-sm text-neutral-500 first-letter:uppercase">
-                  {product.target_group}&apos;s
+                  {product.target_group}&apos;s sneakers
                 </p>
                 <p className="text-xl font-semibold">{product.price} zł</p>
               </div>

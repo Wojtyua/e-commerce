@@ -8,6 +8,7 @@ export const getProductById = async (id: number) => {
       id,
       model,
       price,
+      target_group,
       product_images (
         images(*)
       ),
