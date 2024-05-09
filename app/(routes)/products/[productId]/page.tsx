@@ -12,7 +12,7 @@ const ProductDetailsPage = ({ params }: { params: { productId: number } }) => {
   });
 
   return (
-    <section className="grid justify-center">
+    <section className="grid justify-center w-full lg:w-4/5 mx-auto bg-purple-300">
       <div>
         <p>Product details page</p>
         <p>Product id: {params.productId}</p>
