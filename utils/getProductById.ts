@@ -1,6 +1,17 @@
 import supabase from "@/services/supabase";
 
-export const getProductById = async (id: number) => {
+export interface FormattedProduct {
+  id: number | null;
+  model: string | null;
+  price: number | null;
+  target_group: string | null;
+  image_urls: string[] | [];
+  variants: { size: number | null; quantity: number | null }[];
+}
+
+export const getProductById = async (
+  id: number
+): Promise<FormattedProduct | null> => {
   const { data, error } = await supabase
     .from("products")
     .select(
@@ -10,23 +21,41 @@ export const getProductById = async (id: number) => {
       price,
       target_group,
       product_images (
-        images(*)
+        images(image_url)
       ),
-      variants (*)
+      variants (size, quantity)
     `
     )
     .eq("id", id);
 
   if (error) {
     console.error("Error fetching product by id:", error.message);
-    return [];
+    return null;
   }
 
-  // Ensure data is an array before mapping it
-  if (!data) {
-    return [];
+  if (!data || data.length === 0) {
+    return null;
   }
 
-  // Return the formatted data instead of the raw data
-  return data;
+  const product = data[0];
+
+  const image_urls = product.product_images.flatMap(
+    (pi) => pi.images?.image_url || []
+  );
+
+  const variants = product.variants.map((variant) => ({
+    size: variant.size,
+    quantity: variant.quantity,
+  }));
+
+  const formattedProduct: FormattedProduct = {
+    id: product.id,
+    model: product.model,
+    price: product.price,
+    target_group: product.target_group,
+    image_urls,
+    variants,
+  };
+
+  return formattedProduct;
 };
