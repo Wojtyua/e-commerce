@@ -1,4 +1,4 @@
-import { Brand, Link } from "./types";
+import { Brand, Link } from "./types/types";
 
 export const categories: Link[] = [
   {

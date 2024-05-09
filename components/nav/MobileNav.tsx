@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { menuSlide } from "@/lib/animations";
-import { Link as LinkType } from "@/types";
+import { Link as LinkType } from "@/types/types";
 import Link from "next/link";
 
 import { IoCloseOutline } from "react-icons/io5";

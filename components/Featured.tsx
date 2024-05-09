@@ -40,8 +40,8 @@ const Featured = () => {
                 className="bg-gray-100 w-auto h-auto"
                 width={250}
                 height={250}
-                src={product.image_url}
-                alt={product.model}
+                src={product.image_url || ImagePlaceholder}
+                alt={product.model || "placeholder"}
               />
               <div className="py-2 space-y-1 tracking-wide">
                 <Link href={`/products/${product.id}`}>
