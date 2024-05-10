@@ -1,10 +1,10 @@
 import { dehydrate } from "@tanstack/react-query";
 import { HydrationBoundary, QueryClient } from "@tanstack/react-query";
+import { getFeaturedProducts } from "@/utils/getFeaturedProducts";
 
 import Brandings from "@/components/Brandings";
 import Featured from "@/components/Featured";
 import HeroSection from "@/components/Hero";
-import { getFeaturedProducts } from "@/utils/getFeaturedProducts";
 import Container from "@/components/Container";
 
 const HomePage = async () => {

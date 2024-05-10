@@ -5,11 +5,13 @@ import ProductHeader from "@/components/productDetails/ProductHeader";
 import { Button } from "@/components/ui/button";
 import { getProductById, FormattedProduct } from "@/utils/getProductById";
 import { useQuery } from "@tanstack/react-query";
-import { CiHeart } from "react-icons/ci";
 import { PiShoppingBagLight } from "react-icons/pi";
+import AddToCartButton from "@/components/ui/AddToCartButton";
+import useCartStore from "@/lib/store";
 
 const ProductDetailsPage = ({ params }: { params: { productId: number } }) => {
   const productId = params.productId;
+  const state = useCartStore((state) => state.items);
   const { data, status } = useQuery<FormattedProduct | null>({
     queryKey: ["productById", productId],
     queryFn: () => getProductById(productId),
@@ -27,6 +29,14 @@ const ProductDetailsPage = ({ params }: { params: { productId: number } }) => {
   if (!data) {
     return <div>Product not found</div>;
   }
+
+  const product = {
+    id: data.id,
+    model: data.model,
+    price: data.price,
+    quantity: 1,
+    imageUrl: data.image_urls[0],
+  };
 
   return (
     <section className="flex flex-col px-2 py-5 gap-4 justify-center mx-auto md:flex-row">
@@ -69,14 +79,15 @@ const ProductDetailsPage = ({ params }: { params: { productId: number } }) => {
           <p className="tracking-wide text">{data.description}</p>
         </div>
         <div className="flex flex-col gap-2 order-5">
-          <Button size="lg" className="gap-2">
+          <Button
+            size="lg"
+            className="gap-2 text-md"
+            onClick={console.log(state)}
+          >
             <PiShoppingBagLight size={25} />
             Add to cart
           </Button>
-          <Button size="lg" variant="outline" className="gap-2">
-            <CiHeart size={25} />
-            Add to wishlist
-          </Button>
+          <AddToCartButton product={product} />
         </div>
       </div>
     </section>
