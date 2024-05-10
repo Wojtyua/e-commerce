@@ -11,8 +11,8 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
   const [image, setImage] = useState(images[0]);
 
   return (
-    <div className="flex flex-col gap-2">
-      <div className="flex md:flex-col order-2 gap-2">
+    <div className="flex flex-col gap-2 md:flex-row">
+      <div className="flex md:flex-col gap-2 order-2 md:order-1">
         {images.map((image, index) => (
           <Image
             src={image}
@@ -26,7 +26,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
           />
         ))}
       </div>
-      <div className="order-1">
+      <div className="order-1 md:order-2">
         <Image
           src={image}
           alt="product image"

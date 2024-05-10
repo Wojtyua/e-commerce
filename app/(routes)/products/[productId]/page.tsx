@@ -1,8 +1,12 @@
 "use client";
 
 import ImageGallery from "@/components/ImageGallery";
+import ProductHeader from "@/components/productDetails/ProductHeader";
+import { Button } from "@/components/ui/button";
 import { getProductById, FormattedProduct } from "@/utils/getProductById";
 import { useQuery } from "@tanstack/react-query";
+import { CiHeart } from "react-icons/ci";
+import { PiShoppingBagLight } from "react-icons/pi";
 
 const ProductDetailsPage = ({ params }: { params: { productId: number } }) => {
   const productId = params.productId;
@@ -25,30 +29,54 @@ const ProductDetailsPage = ({ params }: { params: { productId: number } }) => {
   }
 
   return (
-    <section className="flex flex-col px-2 py-5 gap-4 justify-center mx-auto">
-      <div className="px-3">
-        <h2 className="text-3xl font-semibold tracking-wide capitalize ">
-          {data.model}
-        </h2>
-        <p className="text-lg text-neutral-500 first-letter:uppercase">
-          {data.target_group}&apos;s shoes
-        </p>
-        <p className="text-lg font-bold">{data.price} zł</p>
+    <section className="flex flex-col px-2 py-5 gap-4 justify-center mx-auto md:flex-row">
+      <div className="order-2 md:order-1">
+        <ImageGallery images={data.image_urls} />
       </div>
-      <ImageGallery images={data.image_urls} />
-      <div className="mt-5 px-3">
-        <h3 className="text-xl font-semibold tracking-wide mb-3">
-          Choose a size
-        </h3>
-        <div className="grid grid-cols-3 gap-2">
-          {data.variants.map((variant, index) => (
-            <button
-              key={index}
-              className="px-3 py-1 border border-neutral-200 rounded-md"
-            >
-              {variant.size}
-            </button>
-          ))}
+      <div className=" order-1 md:hidden">
+        <ProductHeader
+          model={data.model}
+          target={data.target_group}
+          price={data.price}
+        />
+      </div>
+
+      <div className="mt-5 order-3 flex flex-col gap-5 px-1">
+        <div className=" hidden md:block md:order-1">
+          <ProductHeader
+            model={data.model}
+            target={data.target_group}
+            price={data.price}
+          />
+        </div>
+        <div className="md:order-2">
+          <h3 className="text-xl font-semibold tracking-wide mb-3">
+            Choose a size
+          </h3>
+          <div className="grid grid-cols-3 gap-2">
+            {data.variants.map((variant, index) => (
+              <button
+                key={index}
+                className="px-3 py-2 mx-auto w-2/3 border border-neutral-200 rounded-md"
+              >
+                {variant.size}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="order-4 md:max-w-96">
+          <h3 className="font-semibold text-lg mb-2">About</h3>
+          <p className="tracking-wide text">{data.description}</p>
+        </div>
+        <div className="flex flex-col gap-2 order-5">
+          <Button size="lg" className="gap-2">
+            <PiShoppingBagLight size={25} />
+            Add to cart
+          </Button>
+          <Button size="lg" variant="outline" className="gap-2">
+            <CiHeart size={25} />
+            Add to wishlist
+          </Button>
         </div>
       </div>
     </section>

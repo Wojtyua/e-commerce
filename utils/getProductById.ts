@@ -6,6 +6,7 @@ export interface FormattedProduct {
   price: number | null;
   target_group: string | null;
   image_urls: string[] | [];
+  description: string | null;
   variants: { size: number | null; quantity: number | null }[];
 }
 
@@ -20,6 +21,7 @@ export const getProductById = async (
       model,
       price,
       target_group,
+      description,
       product_images (
         images(image_url)
       ),
@@ -53,6 +55,7 @@ export const getProductById = async (
     model: product.model,
     price: product.price,
     target_group: product.target_group,
+    description: product.description,
     image_urls,
     variants,
   };
