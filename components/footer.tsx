@@ -9,7 +9,7 @@ const Footer = () => {
           </div>
         </div>
         <nav className="text-sm">
-          <h3 className="font-semibold mb-2">Navigation</h3>
+          <h3 className="font-semibold mb-2">Check out</h3>
           <ul className="flex flex-col gap-1 underline">
             <li>Men</li>
             <li>Women</li>
