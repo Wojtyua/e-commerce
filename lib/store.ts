@@ -1,6 +1,6 @@
 // store.ts
 
-import create from "zustand";
+import { create } from "zustand";
 import { CartItem, CartState } from "@/types/store.types";
 
 const useCartStore = create<CartState>((set) => ({
