@@ -23,7 +23,7 @@ const IconButton = ({
         <div className="absolute">
           {count && count > 0 ? (
             <div className="relative bg-black-primary rounded-full -bottom-3 -right-3 size-4">
-              <span className="flex items-center justify-center  text-gray-50 text-xs">
+              <span className="flex items-center justify-center  text-white-primary text-xs">
                 {count}
               </span>
             </div>
