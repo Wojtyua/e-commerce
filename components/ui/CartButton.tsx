@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import IconButton from "./IconButton";
+import Image from "next/image";
 
 const CartButton = () => {
   const cart = useCartStore((state) => state.items);
@@ -34,8 +35,23 @@ const CartButton = () => {
             <DrawerDescription>Check out your shopping cart</DrawerDescription>
           </DrawerHeader>
           <div className="p-4 pb-0">
-            <div className="flex items-center justify-center space-x-2"></div>
-            <div className="mt-3 h-[120px]"></div>
+            <div className="flex flex-col gap-4">
+              {cart.map((item) => (
+                <div key={item.id} className="flex gap-2">
+                  <Image
+                    src={item.imageUrl}
+                    alt={item.model}
+                    width={48}
+                    height={48}
+                    className="w-12 h-12 object-cover rounded-lg"
+                  />
+                  <div>
+                    <p className="font-semibold capitalize">{item.model}</p>
+                    <p>{item.price} PLN</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
           <DrawerFooter>
             <Button>Cart Summary</Button>

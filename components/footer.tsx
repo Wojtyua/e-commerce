@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Footer = () => {
   return (
     // wczesniej bylo black-primary i white
@@ -11,9 +13,15 @@ const Footer = () => {
         <nav className="text-sm">
           <h3 className="font-semibold mb-2">Check out</h3>
           <ul className="flex flex-col gap-1 underline">
-            <li>Men</li>
-            <li>Women</li>
-            <li>New & Featured</li>
+            <li>
+              <Link href="/men">Men</Link>
+            </li>
+            <li>
+              <Link href="/women">Women</Link>
+            </li>
+            <li>
+              <Link href="/new">New & Featured</Link>
+            </li>
           </ul>
           <p></p>
         </nav>
