@@ -23,7 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${font.className} flex flex-col min-h-screen`}>
+      <body
+        className={`${font.className} relative flex flex-col min-h-screen overflow-y-scroll`}
+      >
         <Navbar />
         <ReactQueryProvider>
           <main className="flex-grow">{children}</main>
