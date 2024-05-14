@@ -13,6 +13,7 @@ import {
 import { Button } from "@/components/ui/button";
 import IconButton from "./IconButton";
 import Image from "next/image";
+import Link from "next/link";
 
 const CartButton = () => {
   const cart = useCartStore((state) => state.items);
@@ -39,8 +40,8 @@ const CartButton = () => {
               {cart.map((item) => (
                 <div key={item.id} className="flex gap-2">
                   <Image
-                    src={item.imageUrl}
-                    alt={item.model}
+                    src={item.imageUrl || "not found"}
+                    alt={item.model || "not found"}
                     width={48}
                     height={48}
                     className="w-12 h-12 object-cover rounded-lg"
@@ -54,9 +55,15 @@ const CartButton = () => {
             </div>
           </div>
           <DrawerFooter>
-            <Button>Cart Summary</Button>
             <DrawerClose asChild>
-              <Button variant="outline">Cancel</Button>
+              <Link href="/cart">
+                <Button className="w-full">Cart Summary</Button>
+              </Link>
+            </DrawerClose>
+            <DrawerClose>
+              <Button className="w-full" variant="outline">
+                Cancel
+              </Button>
             </DrawerClose>
           </DrawerFooter>
         </div>
