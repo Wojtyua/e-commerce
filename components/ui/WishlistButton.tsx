@@ -1,4 +1,3 @@
-import useCartStore from "@/lib/store";
 import { CiHeart } from "react-icons/ci";
 import {
   Drawer,

@@ -1,7 +1,7 @@
 import useCartStore from "@/lib/store";
 import { CartItem } from "@/types/store.types";
 import { Button } from "./button";
-import { CiHeart } from "react-icons/ci";
+import { PiShoppingBagLight } from "react-icons/pi";
 
 const AddToCartButton = ({ product }: { product: CartItem }) => {
   const addItem = useCartStore((state) => state.addItem);
@@ -13,14 +13,9 @@ const AddToCartButton = ({ product }: { product: CartItem }) => {
   };
 
   return (
-    <Button
-      size="lg"
-      variant="outline"
-      className="gap-2 text-md"
-      onClick={handleAddToCart}
-    >
-      <CiHeart size={25} />
-      Add to wishlist
+    <Button size="lg" className="gap-2 text-md" onClick={handleAddToCart}>
+      <PiShoppingBagLight size={25} />
+      Add to cart
     </Button>
   );
 };

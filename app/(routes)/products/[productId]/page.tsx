@@ -5,7 +5,7 @@ import ProductHeader from "@/components/productDetails/ProductHeader";
 import { Button } from "@/components/ui/button";
 import { getProductById, FormattedProduct } from "@/utils/getProductById";
 import { useQuery } from "@tanstack/react-query";
-import { PiShoppingBagLight } from "react-icons/pi";
+import { CiHeart } from "react-icons/ci";
 import AddToCartButton from "@/components/ui/AddToCartButton";
 import useCartStore from "@/lib/store";
 
@@ -79,15 +79,11 @@ const ProductDetailsPage = ({ params }: { params: { productId: number } }) => {
           <p className="tracking-wide text">{data.description}</p>
         </div>
         <div className="flex flex-col gap-2 order-5">
-          <Button
-            size="lg"
-            className="gap-2 text-md"
-            onClick={console.log(state)}
-          >
-            <PiShoppingBagLight size={25} />
-            Add to cart
-          </Button>
           <AddToCartButton product={product} />
+          <Button size="lg" className="gap-2 text-md" variant="outline">
+            <CiHeart size={25} />
+            Add to wishlist
+          </Button>
         </div>
       </div>
     </section>
