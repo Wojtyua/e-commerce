@@ -1,5 +1,8 @@
-import { dehydrate } from "@tanstack/react-query";
-import { HydrationBoundary, QueryClient } from "@tanstack/react-query";
+import {
+  HydrationBoundary,
+  QueryClient,
+  dehydrate,
+} from "@tanstack/react-query";
 import { getFeaturedProducts } from "@/utils/getFeaturedProducts";
 
 import Brandings from "@/components/Brandings";
