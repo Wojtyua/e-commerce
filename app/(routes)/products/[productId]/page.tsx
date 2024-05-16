@@ -1,13 +1,14 @@
 "use client";
 
-import ImageGallery from "@/components/ImageGallery";
-import ProductHeader from "@/components/productDetails/ProductHeader";
-import { Button } from "@/components/ui/button";
 import { getProductById, FormattedProduct } from "@/utils/getProductById";
 import { useQuery } from "@tanstack/react-query";
-import { CiHeart } from "react-icons/ci";
-import AddToCartButton from "@/components/ui/AddToCartButton";
 import useCartStore from "@/lib/store";
+
+import ProductHeader from "@/components/productDetails/ProductHeader";
+import AddToWishlistButton from "@/components/ui/AddToWishlistButton";
+import AddToCartButton from "@/components/ui/AddToCartButton";
+import ProductPending from "@/components/ui/ProductPending";
+import ImageGallery from "@/components/ImageGallery";
 
 const ProductDetailsPage = ({ params }: { params: { productId: number } }) => {
   const productId = params.productId;
@@ -19,7 +20,7 @@ const ProductDetailsPage = ({ params }: { params: { productId: number } }) => {
   });
 
   if (status === "pending") {
-    return <div>Loading...</div>;
+    return <ProductPending />;
   }
 
   if (status === "error") {
@@ -80,10 +81,7 @@ const ProductDetailsPage = ({ params }: { params: { productId: number } }) => {
         </div>
         <div className="flex flex-col gap-2 order-5">
           <AddToCartButton product={product} />
-          <Button size="lg" className="gap-2 text-md" variant="outline">
-            <CiHeart size={25} />
-            Add to wishlist
-          </Button>
+          <AddToWishlistButton />
         </div>
       </div>
     </section>
