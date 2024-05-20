@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${font.className} relative flex flex-col min-h-screen overflow-y-scroll`}
+        className={`${font.className} antialiased relative flex flex-col min-h-screen overflow-y-scroll`}
       >
         <Navbar />
         <ReactQueryProvider>
