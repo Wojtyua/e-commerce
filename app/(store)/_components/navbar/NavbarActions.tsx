@@ -1,7 +1,7 @@
-import SearchBar from "@/components/ui/SearchBar";
 import CartButton from "../ui/CartButton";
-import WishlistButton from "../ui/WishlistButton";
 import ProfileButton from "../ui/ProfileButton";
+import SearchBar from "../ui/SearchBar";
+import WishlistButton from "../ui/WishlistButton";
 
 const NavbarActions = () => {
   return (

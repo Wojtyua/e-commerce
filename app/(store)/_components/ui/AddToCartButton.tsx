@@ -1,6 +1,7 @@
+import { Button } from "@/components/ui/button";
 import useCartStore from "@/lib/store";
 import { CartItem } from "@/types/store.types";
-import { Button } from "./button";
+
 import { PiShoppingBagLight } from "react-icons/pi";
 
 const AddToCartButton = ({ product }: { product: CartItem }) => {

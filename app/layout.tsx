@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 
 import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/app/(store)/_components/navbar/Navbar";
 
 import "./globals.css";
 import ReactQueryProvider from "@/providers/reactQueryProvider";

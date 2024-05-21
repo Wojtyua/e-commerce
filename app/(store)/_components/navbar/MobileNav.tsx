@@ -7,9 +7,8 @@ import { IoCloseOutline } from "react-icons/io5";
 import { CiHeart, CiUser } from "react-icons/ci";
 import { PiShoppingBagLight } from "react-icons/pi";
 import { CiSearch } from "react-icons/ci";
-
-import { Button } from "../ui/button";
-import IconButton from "../ui/IconButton";
+import IconButton from "@/app/(store)/_components/ui/IconButton";
+import { Button } from "@/components/ui/button";
 
 type MobileNavProps = {
   toggleMenu: () => void;

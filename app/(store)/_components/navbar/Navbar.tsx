@@ -5,12 +5,23 @@ import { AnimatePresence, motion } from "framer-motion";
 import { CiMenuBurger } from "react-icons/ci";
 import Link from "next/link";
 
-import { categories } from "@/data";
+import Navigation from "@/app/(store)/_components/navbar/Navigation";
+import IconButton from "@/app/(store)/_components/ui/IconButton";
+import NavbarActions from "./NavbarActions";
+import MobileNav from "./MobileNav";
 
-import MainNav from "@/components/nav/MainNav";
-import NavbarActions from "@/components/nav/NavbarActions";
-import IconButton from "@/components/ui/IconButton";
-import MobileNav from "@/components/nav/MobileNav";
+const routes = [
+  {
+    id: "1",
+    label: "Men",
+    href: "/men",
+  },
+  {
+    id: "2",
+    label: "Women",
+    href: "/women",
+  },
+];
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,7 +33,7 @@ const Navbar = () => {
         <Link href="/" className="ml-4 flex lg:ml-0 gap-x-2">
           <p className="font-bold text-xl">SneakPeak</p>
         </Link>
-        <MainNav data={categories} />
+        <Navigation data={routes} />
 
         <NavbarActions />
         <IconButton
@@ -45,7 +56,7 @@ const Navbar = () => {
               exit={{ opacity: 0 }}
               onClick={toggleMenu}
             ></motion.div>
-            <MobileNav toggleMenu={toggleMenu} categories={categories} />
+            <MobileNav toggleMenu={toggleMenu} categories={routes} />
           </>
         )}
       </AnimatePresence>

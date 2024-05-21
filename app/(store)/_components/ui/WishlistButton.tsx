@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import IconButton from "./IconButton";
 
-const CartButton = () => {
+const WishlistButton = () => {
   return (
     <Drawer>
       <DrawerTrigger asChild>
@@ -43,4 +43,4 @@ const CartButton = () => {
   );
 };
 
-export default CartButton;
+export default WishlistButton;

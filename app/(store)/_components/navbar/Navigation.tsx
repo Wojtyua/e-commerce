@@ -10,7 +10,7 @@ type MainNavProps = {
   data: LinkType[];
 };
 
-const MainNav = ({ data }: MainNavProps) => {
+const Navigation = ({ data }: MainNavProps) => {
   const pathname = usePathname();
 
   const routes = data.map((route) => ({
@@ -37,4 +37,4 @@ const MainNav = ({ data }: MainNavProps) => {
   );
 };
 
-export default MainNav;
+export default Navigation;

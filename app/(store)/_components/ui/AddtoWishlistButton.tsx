@@ -1,4 +1,4 @@
-import { Button } from "./button";
+import { Button } from "@/components/ui/button";
 import { CiHeart } from "react-icons/ci";
 
 const AddToWishlistButton = () => {

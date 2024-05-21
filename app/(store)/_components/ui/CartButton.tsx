@@ -11,8 +11,9 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
-import IconButton from "./IconButton";
+
 import Image from "next/image";
+import IconButton from "./IconButton";
 import Link from "next/link";
 
 const CartButton = () => {
