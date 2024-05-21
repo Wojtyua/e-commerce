@@ -7,7 +7,9 @@ const Footer = () => {
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 px-10 py-7">
         <div className="flex flex-col justify-center col-span-2 sm:col-span-1">
           <div className="flex gap-1">
-            <span className="text-2xl font-bold">SneakPeak </span>&copy;
+            <Link href="/">
+              <span className="text-2xl font-bold">SneakPeak </span>&copy;
+            </Link>
           </div>
         </div>
         <nav className="text-sm">
