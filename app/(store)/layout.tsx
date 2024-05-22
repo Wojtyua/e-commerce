@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 
 import { Urbanist } from "next/font/google";
 
-import Footer from "@/components/Footer";
+import Footer from "@/app/(store)/_components/Footer";
 import Navbar from "@/app/(store)/_components/navbar/Navbar";
 
-import "./globals.css";
+import "../globals.css";
 import ReactQueryProvider from "@/providers/reactQueryProvider";
 
 // POEKSPERYMENTUJ PÓŹNIEJ ZE ZMIANĄ NA INNY FONT
