@@ -40,7 +40,7 @@ const ProductDetailsPage = ({ params }: { params: { productId: number } }) => {
   };
 
   return (
-    <section className="flex flex-col px-2 py-5 gap-4 justify-center mx-auto md:flex-row">
+    <section className="flex flex-col flex-grow px-2 py-5 gap-4 justify-center mx-auto md:flex-row">
       <div className="order-2 md:order-1">
         <ImageGallery images={data.image_urls} />
       </div>
