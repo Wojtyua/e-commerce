@@ -1,3 +1,4 @@
+import Logo from "@/components/Logo";
 import Link from "next/link";
 
 const Footer = () => {
@@ -7,9 +8,7 @@ const Footer = () => {
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 px-10 py-7">
         <div className="flex flex-col justify-center col-span-2 sm:col-span-1">
           <div className="flex gap-1">
-            <Link href="/">
-              <span className="text-2xl font-bold">SneakPeak </span>&copy;
-            </Link>
+            <Logo variant="white" />
           </div>
         </div>
         <nav className="text-sm">

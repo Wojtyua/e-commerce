@@ -37,7 +37,7 @@ const Featured = () => {
               key={product.id}
             >
               <Image
-                className="bg-gray-100 w-auto h-auto"
+                className="bg-gray-100 w-auto h-auto rounded-md"
                 width={250}
                 height={250}
                 src={product.image_url || ImagePlaceholder}

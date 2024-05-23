@@ -9,6 +9,7 @@ import Navigation from "@/app/(store)/_components/navbar/Navigation";
 import IconButton from "@/app/(store)/_components/ui/IconButton";
 import NavbarActions from "./NavbarActions";
 import MobileNav from "./MobileNav";
+import Logo from "@/components/Logo";
 
 const routes = [
   {
@@ -30,9 +31,7 @@ const Navbar = () => {
   return (
     <div className="border-b">
       <div className="px-4 sm:px-4 lg:px-8 flex h-16 items-center">
-        <Link href="/" className="ml-4 flex lg:ml-0 gap-x-2">
-          <p className="font-bold text-xl">SneakPeak</p>
-        </Link>
+        <Logo />
         <Navigation data={routes} />
 
         <NavbarActions />
