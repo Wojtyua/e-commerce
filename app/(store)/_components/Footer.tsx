@@ -3,7 +3,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     // wczesniej bylo black-primary i white
-    <footer className="bg-black-primary text-white-primary border-t">
+    <footer className="bg-black-primary text-white-primary">
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 px-10 py-7">
         <div className="flex flex-col justify-center col-span-2 sm:col-span-1">
           <div className="flex gap-1">
@@ -34,7 +34,6 @@ const Footer = () => {
             <li>Email: sneakpeak@email.com</li>
             <li>Address: Warsaw, Złota 44</li>
           </ul>
-          <p></p>
         </div>
       </div>
     </footer>

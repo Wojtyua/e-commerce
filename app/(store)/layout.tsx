@@ -9,8 +9,10 @@ export default function Layout({
 }>) {
   return (
     <>
-      <Navbar />
-      <ReactQueryProvider>{children}</ReactQueryProvider>
+      <div className="min-h-screen">
+        <Navbar />
+        <ReactQueryProvider>{children}</ReactQueryProvider>
+      </div>
       <Footer />
     </>
   );

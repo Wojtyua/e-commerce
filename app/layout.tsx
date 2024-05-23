@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 
 import "./globals.css";
+import Footer from "./(store)/_components/Footer";
 
 // POEKSPERYMENTUJ PÓŹNIEJ ZE ZMIANĄ NA INNY FONT
 const font = Urbanist({ subsets: ["latin"] });
@@ -20,9 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${font.className} antialiased relative flex flex-col min-h-screen overflow-y-scroll`}
+        className={`${font.className} antialiased relative overflow-y-scroll`}
       >
-        <main className="flex-1">{children}</main>
+        <main>{children}</main>
       </body>
     </html>
   );
