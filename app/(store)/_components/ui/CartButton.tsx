@@ -13,7 +13,6 @@ import {
 import { Button } from "@/components/ui/button";
 
 import Image from "next/image";
-import IconButton from "./IconButton";
 import Link from "next/link";
 
 const CartButton = () => {
@@ -21,10 +20,12 @@ const CartButton = () => {
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <IconButton
-          icon={<PiShoppingBagLight size={25} />}
-          count={cart.length}
-        />
+        <button className="relative hover:bg-neutral-200 transition rounded-full p-2">
+          <PiShoppingBagLight size={25} />
+          <span className="absolute bg-black-primary text-white-primary flex items-center justify-center text-xs font-bold rounded-full bottom-1 right-1 size-4">
+            {cart.length}
+          </span>
+        </button>
       </DrawerTrigger>
       <DrawerContent>
         <div className="mx-auto w-full max-w-4xl">
@@ -48,7 +49,11 @@ const CartButton = () => {
                     className="w-12 h-12 object-cover rounded-lg"
                   />
                   <div>
-                    <p className="font-semibold capitalize">{item.model}</p>
+                    <Link href={`/products/${item.id}`}>
+                      <p className="font-semibold capitalize underline cursor-pointer">
+                        {item.model}
+                      </p>
+                    </Link>
                     <p>{item.price} PLN</p>
                   </div>
                 </div>
@@ -61,7 +66,7 @@ const CartButton = () => {
                 <Button className="w-full">Cart Summary</Button>
               </Link>
             </DrawerClose>
-            <DrawerClose>
+            <DrawerClose asChild>
               <Button className="w-full" variant="outline">
                 Cancel
               </Button>

@@ -10,14 +10,11 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
-import IconButton from "./IconButton";
 
 const WishlistButton = () => {
   return (
     <Drawer>
-      <DrawerTrigger asChild>
-        <IconButton icon={<CiHeart size={25} />} count={4} />
-      </DrawerTrigger>
+      <DrawerTrigger>click</DrawerTrigger>
       <DrawerContent>
         <div className="mx-auto w-full max-w-4xl">
           <DrawerHeader className="border-b">
