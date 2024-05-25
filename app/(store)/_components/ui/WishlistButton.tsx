@@ -22,9 +22,11 @@ const WishlistButton = () => {
       <DrawerTrigger asChild>
         <button className="relative hover:bg-neutral-200 transition rounded-full p-2">
           <CiHeart size={25} />
-          <span className="absolute bg-black-primary text-white-primary flex items-center justify-center text-xs font-bold rounded-full bottom-1 right-1 size-4">
-            {cart.length}
-          </span>
+          {cart.length > 0 && (
+            <span className="absolute bg-black-primary text-white-primary flex items-center justify-center text-xs font-bold rounded-full bottom-1 right-1 size-4">
+              {cart.length}
+            </span>
+          )}
         </button>
       </DrawerTrigger>
       <DrawerContent>

@@ -2,7 +2,7 @@ import Logo from "@/components/Logo";
 
 const Navigation = () => {
   return (
-    <div className="flex flex-col p-2 space-y-4">
+    <div className="flex flex-col p-4 space-y-4 border-r">
       <Logo />
       <nav className="flex-1">
         <ul>
