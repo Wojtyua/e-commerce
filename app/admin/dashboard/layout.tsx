@@ -14,7 +14,7 @@ export default function Layout({
     <div className="grid grid-cols-[12rem_1fr] h-screen">
       <Navigation />
 
-      <div className=" py-2 px-1 bg-black-primary">
+      <div className=" py-2 px-1 bg-primary">
         <div className="bg-white-primary h-full w-full rounded-xl">
           {children}
         </div>

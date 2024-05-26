@@ -22,7 +22,7 @@ export default function RootLayout({
       <body
         className={`${font.className} antialiased relative overflow-y-scroll`}
       >
-        <main>{children}</main>
+        <main className="text-primary">{children}</main>
       </body>
     </html>
   );

@@ -25,7 +25,7 @@ const routes = [
 const Navigation = () => {
   const pathname = usePathname();
   return (
-    <div className="flex flex-col space-y-8 p-2 bg-black-primary text-white-primary">
+    <div className="flex flex-col space-y-8 p-2 bg-primary text-primary-foreground">
       <Logo />
       <nav className="flex-1">
         <ul className="space-y-2 flex flex-col">
