@@ -22,7 +22,7 @@ const config = {
         landing: "url('/images/landing_page_2.jpg')",
       },
       colors: {
-        "black-primary": "#111111",
+        "black-primary": "#0a0a0a",
         "white-primary": "#fafafa",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

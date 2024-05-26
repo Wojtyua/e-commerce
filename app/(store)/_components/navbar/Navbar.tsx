@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CiMenuBurger } from "react-icons/ci";
-import Link from "next/link";
 
 import Navigation from "@/app/(store)/_components/navbar/Navigation";
 import IconButton from "@/app/(store)/_components/ui/IconButton";
