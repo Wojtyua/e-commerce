@@ -15,7 +15,7 @@ export default function Layout({
       <Navigation />
 
       <div className=" py-2 px-1 bg-primary">
-        <div className="bg-white-primary h-full w-full rounded-xl">
+        <div className="bg-white-primary h-full w-full rounded-xl p-2">
           {children}
         </div>
       </div>
