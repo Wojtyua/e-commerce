@@ -9,7 +9,9 @@ const NavbarActions = () => {
       <SearchBar />
       <CartButton />
       <WishlistButton />
-      <ProfileButton />
+      <div className="hidden md:flex">
+        <ProfileButton />
+      </div>
     </div>
   );
 };
