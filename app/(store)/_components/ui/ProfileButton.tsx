@@ -1,11 +1,11 @@
 import { CiUser } from "react-icons/ci";
-import IconButton from "./IconButton";
 import { useState } from "react";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { Button } from "@/components/ui/button";
 
 const ProfileButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +28,22 @@ const ProfileButton = () => {
           <CiUser size={25} />
         </div>
       </PopoverTrigger>
-      <PopoverContent>Place content for the popover here.</PopoverContent>
+      <PopoverContent>
+        <div className="space-y-3">
+          <p className="text-neutral-500">
+            {/* to zmienic */}
+            Become a{" "}
+            <span className="text-black-primary font-semibold">
+              SneakPeak
+            </span>{" "}
+            member and get exclusive offers and discounts
+          </p>
+          <div className="flex space-x-2">
+            <Button variant="secondary">Log in</Button>
+            <Button>Register</Button>
+          </div>
+        </div>
+      </PopoverContent>
     </Popover>
   );
 };
