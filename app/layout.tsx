@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 
 import "./globals.css";
+import ReactQueryProvider from "@/providers/reactQueryProvider";
 
 // POEKSPERYMENTUJ PÓŹNIEJ ZE ZMIANĄ NA INNY FONT
 const font = Urbanist({ subsets: ["latin"] });
@@ -22,7 +23,9 @@ export default function RootLayout({
       <body
         className={`${font.className} antialiased relative overflow-y-scroll`}
       >
-        <main className="text-primary">{children}</main>
+        <main className="text-primary">
+          <ReactQueryProvider>{children}</ReactQueryProvider>
+        </main>
       </body>
     </html>
   );

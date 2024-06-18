@@ -38,8 +38,8 @@ const Featured = () => {
             >
               <Image
                 className="bg-gray-100 w-auto h-auto rounded-md"
-                width={250}
-                height={250}
+                width={400}
+                height={400}
                 src={product.image_url || ImagePlaceholder}
                 alt={product.model || "placeholder"}
               />

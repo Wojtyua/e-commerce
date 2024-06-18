@@ -1,12 +1,37 @@
 import supabase from "@/services/supabase";
 
 export const getProducts = async () => {
-  let { data, error } = await supabase.from("products").select("*");
+  const { data, error } = await supabase.from("products").select(
+    `
+      id,
+      model,
+      price,
+      target_group,
+      product_images (
+        images(*)
+      )
+    `
+  );
 
   if (error) {
-    console.error("Error fetching products", error);
-    throw new Error("Error fetching products");
+    console.error("Error fetching featured products:", error.message);
+    return [];
   }
 
-  return data;
+  // Ensure data is an array before mapping it
+  if (!data) {
+    return [];
+  }
+
+  // Map through the data to format it, extracting only the first image URL
+  const formattedData = data.map((product) => ({
+    id: product.id,
+    model: product.model,
+    price: product.price,
+    target_group: product.target_group,
+    image_url: product.product_images[0]?.images?.image_url,
+  }));
+
+  // Return the formatted data instead of the raw data
+  return formattedData;
 };

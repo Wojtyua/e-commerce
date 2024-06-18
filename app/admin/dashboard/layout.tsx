@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Navigation from "./_components/Navigation";
+import ReactQueryProvider from "@/providers/reactQueryProvider";
 
 export const metadata: Metadata = {
   title: "SneakPeak | Admin Dashboard",
@@ -16,7 +17,7 @@ export default function Layout({
 
       <div className=" py-2 px-1 bg-primary">
         <div className="bg-white-primary h-full w-full rounded-xl p-2">
-          {children}
+          <ReactQueryProvider>{children}</ReactQueryProvider>
         </div>
       </div>
     </div>
