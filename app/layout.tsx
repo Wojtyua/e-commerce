@@ -4,6 +4,8 @@ import { Urbanist } from "next/font/google";
 
 import "./globals.css";
 import ReactQueryProvider from "@/providers/reactQueryProvider";
+import Navbar from "./(store)/_components/navbar/Navbar";
+import Footer from "./(store)/_components/Footer";
 
 // POEKSPERYMENTUJ PÓŹNIEJ ZE ZMIANĄ NA INNY FONT
 const font = Urbanist({ subsets: ["latin"] });
@@ -23,9 +25,11 @@ export default function RootLayout({
       <body
         className={`${font.className} antialiased relative overflow-y-scroll`}
       >
+        <Navbar />
         <main className="text-primary">
           <ReactQueryProvider>{children}</ReactQueryProvider>
         </main>
+        <Footer />
       </body>
     </html>
   );

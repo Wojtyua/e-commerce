@@ -4,10 +4,10 @@ import {
   dehydrate,
 } from "@tanstack/react-query";
 import { getFeaturedProducts } from "@/utils/getFeaturedProducts";
-import HeroSection from "./_components/Hero";
-import Container from "./_components/Container";
-import Brandings from "./_components/Brandings";
-import Featured from "./_components/Featured";
+import HeroSection from "./(store)/_components/Hero";
+import Container from "./(store)/_components/Container";
+import Brandings from "./(store)/_components/Brandings";
+import Featured from "./(store)/_components/Featured";
 
 const HomePage = async () => {
   const queryClient = new QueryClient();
