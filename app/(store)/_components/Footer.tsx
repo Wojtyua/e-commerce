@@ -3,7 +3,6 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    // wczesniej bylo black-primary i white
     <footer className="bg-primary text-white-primary">
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 px-10 py-7">
         <div className="flex flex-col justify-center col-span-2 sm:col-span-1">
@@ -24,7 +23,6 @@ const Footer = () => {
               <Link href="/new">New & Featured</Link>
             </li>
           </ul>
-          <p></p>
         </nav>
         <div className="text-sm">
           <h3 className="font-semibold mb-2">Contact</h3>
