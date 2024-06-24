@@ -5,7 +5,8 @@ import { Urbanist } from "next/font/google";
 import "./globals.css";
 import Navbar from "./(store)/_components/navbar/Navbar";
 import Footer from "./(store)/_components/Footer";
-import QueryProvider from "@/lib/QueryProvider";
+import QueryProvider from "@/components/QueryProvider";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 // POEKSPERYMENTUJ PÓŹNIEJ ZE ZMIANĄ NA INNY FONT
 const font = Urbanist({ subsets: ["latin"] });
@@ -21,16 +22,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body
-        className={`${font.className} antialiased overflow-y-scroll flex flex-col min-h-screen`}
-      >
-        <QueryProvider>
+    <QueryProvider>
+      <html lang="en">
+        <body
+          className={`${font.className} antialiased overflow-y-scroll flex flex-col min-h-screen`}
+        >
           <Navbar />
           <main className="text-primary flex-1">{children}</main>
           <Footer />
-        </QueryProvider>
-      </body>
-    </html>
+          {/* developer tools */}
+          <ReactQueryDevtools initialIsOpen={false} />
+        </body>
+      </html>
+    </QueryProvider>
   );
 }
