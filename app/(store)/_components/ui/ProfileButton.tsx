@@ -6,10 +6,13 @@ import {
 import { Button } from "@/components/ui/button";
 
 import { CiUser } from "react-icons/ci";
+import Link from "next/link";
+import { useState } from "react";
 
 const ProfileButton = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <Popover>
+    <Popover open={isOpen} onOpenChange={setIsOpen}>
       <PopoverTrigger>
         <div
           role="button"
@@ -29,8 +32,14 @@ const ProfileButton = () => {
             member and get exclusive offers and discounts
           </p>
           <div className="flex space-x-2">
-            <Button variant="secondary">Log in</Button>
-            <Button>Register</Button>
+            <Link href="/login">
+              <Button variant="secondary" onClick={() => setIsOpen(false)}>
+                Log in
+              </Button>
+            </Link>
+            <Link href="/register">
+              <Button onClick={() => setIsOpen(false)}>Register</Button>
+            </Link>
           </div>
         </div>
       </PopoverContent>
