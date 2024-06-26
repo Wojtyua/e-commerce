@@ -11,7 +11,7 @@ const MenPage = () => {
     queryFn: getMensProducts,
     staleTime: 1000 * 60 * 5,
   });
-  if (status === "pending") return <div>Loading...</div>;
+  if (status === "pending") return <div className="">Loading...</div>;
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-10 xl:gap-12 p-5">
       {data?.map((product) => (
