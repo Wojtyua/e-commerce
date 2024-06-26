@@ -15,16 +15,16 @@ const MenPage = () => {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-10 xl:gap-12 p-5">
       {data?.map((product) => (
-        <div key={product.id}>
+        <div key={product.id} className="shadow-md rounded-md">
           <Image
             className="bg-gray-100 w-64 h-64 md:h-96 md:w-80 rounded-md object-cover"
             width={400}
-            height={40}
+            height={400}
             src={product.image_url || "ImagePlaceholder"}
             alt={product.model || "placeholder"}
           />
 
-          <div className="py-2 space-y-1 tracking-wide">
+          <div className="p-2 space-y-1 tracking-wide">
             <Link href={`/products/${product.id}`}>
               <h3 className="font-bold text-lg capitalize hover:underline hover:cursor-pointer hover:transition">
                 {product.model}
