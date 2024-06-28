@@ -25,7 +25,6 @@ export async function login(email: string, password: string): Promise<void> {
     setLoading(false);
 }
 
-
 export async function signup(email: string, password: string): Promise<void> {
     const supabase = createClient();
     const { data, error } = await supabase.auth.signUp({
@@ -35,7 +34,7 @@ export async function signup(email: string, password: string): Promise<void> {
 
     console.log('Supabase response:', { error, data });
 
-    const { setLoading, setError } = useAuthStore.getState();
+    const { setUser, setLoading, setError } = useAuthStore.getState();
 
     if (error) {
         setError(error.message);

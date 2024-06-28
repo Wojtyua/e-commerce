@@ -12,8 +12,10 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import useAuthStore from "@/lib/zustand/authStore";
+import { useRouter } from "next/navigation";
 
 export function LoginForm() {
+  const router = useRouter();
   const { login, isLoading, error } = useAuthStore((state) => ({
     login: state.login,
     isLoading: state.isLoading,
@@ -25,13 +27,9 @@ export function LoginForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    const formData = new FormData();
-    formData.append("email", email);
-    formData.append("password", password);
-
     console.log("Submitting login form");
-    await login(email, password);
+    await login(email, password, () => router.push("/"));
+    console.log("Login form submitted");
   };
 
   return (
@@ -83,7 +81,7 @@ export function LoginForm() {
         </form>
         {error && <p className="mt-4 text-red-500">{error}</p>}
         <div className="mt-4 text-center text-sm">
-          Don&apos;t have an account?{" "}
+          Don't have an account?{" "}
           <Link href="/auth/signup" className="underline">
             Sign up
           </Link>
