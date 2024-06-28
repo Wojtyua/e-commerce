@@ -1,5 +1,6 @@
+"use client";
 import Link from "next/link";
-
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,63 +11,95 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { signup } from "@/lib/auth-actions";
+import useAuthStore from "@/lib/zustand/authStore";
+import { useRouter } from "next/navigation";
 
-export function SignUpForm() {
+export function SignupForm() {
+  const router = useRouter();
+  const { signup, isLoading, error } = useAuthStore((state) => ({
+    signup: state.signup,
+    isLoading: state.isLoading,
+    error: state.error,
+  }));
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await signup(email, password, firstName, lastName, () => router.push("/"));
+  };
+
   return (
-    <Card className="mx-auto max-w-sm">
+    <Card className="mx-auto border-none shadow-none sm:shadow-md max-w-lg">
       <CardHeader>
-        <CardTitle className="text-xl">Sign Up</CardTitle>
+        <CardTitle className="text-2xl">Sign Up</CardTitle>
         <CardDescription>
-          Enter your information to create an account
+          Enter your details below to create a new account
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form action="">
+        <form onSubmit={handleSubmit}>
           <div className="grid gap-4">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="grid gap-2">
-                <Label htmlFor="first-name">First name</Label>
-                <Input
-                  name="first-name"
-                  id="first-name"
-                  placeholder="Max"
-                  required
-                />
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="last-name">Last name</Label>
-                <Input
-                  name="last-name"
-                  id="last-name"
-                  placeholder="Robinson"
-                  required
-                />
-              </div>
+            <div className="grid gap-2">
+              <Label htmlFor="firstName">First Name</Label>
+              <Input
+                id="firstName"
+                name="firstName"
+                type="text"
+                placeholder="John"
+                required
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="lastName">Last Name</Label>
+              <Input
+                id="lastName"
+                name="lastName"
+                type="text"
+                placeholder="Doe"
+                required
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
               <Input
-                name="email"
                 id="email"
+                name="email"
                 type="email"
                 placeholder="m@example.com"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="password">Password</Label>
-              <Input name="password" id="password" type="password" />
+              <Input
+                id="password"
+                name="password"
+                type="password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
-            <Button formAction={signup} type="submit" className="w-full">
-              Create an account
+            <Button type="submit" disabled={isLoading} className="w-full">
+              {isLoading ? "Signing up..." : "Sign Up"}
             </Button>
           </div>
         </form>
+        {error && <p className="mt-4 text-red-500">{error}</p>}
         <div className="mt-4 text-center text-sm">
           Already have an account?{" "}
           <Link href="/auth/login" className="underline">
-            Sign in
+            Log in
           </Link>
         </div>
       </CardContent>

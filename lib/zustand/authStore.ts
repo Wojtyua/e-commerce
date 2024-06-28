@@ -4,7 +4,9 @@ import { login as loginAction, signup as signupAction, logout as logoutAction} f
 
 
 interface User_metadata {
-    full_name?: string;
+    first_name?: string;
+    last_name?: string;
+    email?: string;
 }
 interface User {
     id: string;
@@ -22,7 +24,7 @@ interface AuthState {
     setError: (error: string | null) => void;
 
     login: (email: string, password: string, redirect: () => void) => Promise<void>;
-    signup: (email: string, password: string, redirect: () => void) => Promise<void>;
+    signup: (email: string, password: string, firstName: string, lastName: string, redirect: () => void) => Promise<void>;
     logout: (redirect: () => void) => Promise<void>;
 }
 
@@ -55,11 +57,12 @@ const useAuthStore = create<AuthState>()(
                     set({ error: error.message, isLoading: false });
                 }
             },
-            signup: async (email, password, redirect) => {
+            signup: async (email, password, firstName, lastName, redirect) => {
                 set({ isLoading: true });
                 try {
                     console.log('Attempting to signup');
-                    await signupAction(email, password);
+                    await signupAction(email, password, firstName, lastName);
+                    set({ isLoading: false, error: null });
                     redirect();
                 } catch (error: any) {
                     set({ error: error.message, isLoading: false });

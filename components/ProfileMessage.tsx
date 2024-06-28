@@ -12,7 +12,7 @@ const ProfileMessage = ({
   const logout = useAuthStore((state) => state.logout);
   const router = useRouter();
 
-  const username = user?.user_metadata.full_name?.split(" ")[0] || "User";
+  const username = user?.user_metadata.first_name || "User";
   return (
     <div>
       {user ? (

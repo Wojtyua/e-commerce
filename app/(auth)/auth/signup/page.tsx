@@ -1,10 +1,10 @@
 import React from "react";
-import { SignUpForm } from "./_components/SignUpForm";
+import { SignupForm } from "./_components/SignUpForm";
 
 const Page = () => {
   return (
-    <div>
-      <SignUpForm />
+    <div className="mt-5 sm:mt-7 md:mt-10 lg:mt-16">
+      <SignupForm />
     </div>
   );
 };
