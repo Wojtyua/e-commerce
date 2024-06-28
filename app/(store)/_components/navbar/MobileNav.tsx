@@ -60,7 +60,7 @@ const MobileNav = ({ toggleMenu, categories }: MobileNavProps) => {
       <div className="flex flex-col text-2xl space-y-12 font-medium py-2 px-10">
         {/* To bedzie można wywalic albo zrobić jakos inaczej */}
         <div className="flex flex-col space-y-4">
-          <Link href="/new">New & Recomended</Link>
+          <Link href="/new">New & Featured</Link>
           {categories.map((category) => (
             <Link
               onClick={toggleMenu}
