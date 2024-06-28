@@ -8,7 +8,7 @@ import { CiHeart, CiUser } from "react-icons/ci";
 import { PiShoppingBagLight } from "react-icons/pi";
 import { CiSearch } from "react-icons/ci";
 import IconButton from "@/app/(store)/_components/ui/IconButton";
-import { Button } from "@/components/ui/button";
+import ProfileMessage from "@/components/ProfileMessage";
 
 type MobileNavProps = {
   toggleMenu: () => void;
@@ -71,21 +71,8 @@ const MobileNav = ({ toggleMenu, categories }: MobileNavProps) => {
             </Link>
           ))}
         </div>
-
-        {/* login or register */}
-        <div className="space-y-3">
-          <p className="text-neutral-500 text-lg">
-            {/* to zmienic */}
-            Become a{" "}
-            <span className="text-black-primary font-semibold">
-              SneakPeak
-            </span>{" "}
-            member and get exclusive offers and discounts
-          </p>
-          <div className="flex space-x-2">
-            <Button variant="secondary">Log in</Button>
-            <Button>Register</Button>
-          </div>
+        <div className="text-lg">
+          <ProfileMessage setState={toggleMenu} />
         </div>
         <div className="text-base font-semibold">
           {structure.map((item, index) => (

@@ -2,9 +2,14 @@ import {create} from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import { login as loginAction, signup as signupAction } from "@/lib/auth-actions";
 
+
+interface User_metadata {
+    full_name?: string;
+}
 interface User {
     id: string;
     email?: string | null;
+    user_metadata: User_metadata;
 }
 
 interface AuthState {
