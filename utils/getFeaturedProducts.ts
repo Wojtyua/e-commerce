@@ -1,4 +1,4 @@
-import supabase from "@/services/supabase";
+import supabase from "./supabase/supabase";
 
 export const getFeaturedProducts = async () => {
   const { data, error } = await supabase
