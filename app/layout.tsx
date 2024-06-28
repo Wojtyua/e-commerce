@@ -7,6 +7,7 @@ import Navbar from "./(store)/_components/navbar/Navbar";
 import Footer from "./(store)/_components/Footer";
 import QueryProvider from "@/components/QueryProvider";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Toaster } from "@/components/ui/sonner";
 
 // POEKSPERYMENTUJ PÓŹNIEJ ZE ZMIANĄ NA INNY FONT
 const font = Urbanist({ subsets: ["latin"] });
@@ -32,6 +33,7 @@ export default function RootLayout({
           <Footer />
           {/* developer tools */}
           <ReactQueryDevtools initialIsOpen={false} />
+          <Toaster />
         </body>
       </html>
     </QueryProvider>

@@ -1,5 +1,7 @@
 import { createClient } from "@/utils/supabase/client";
 import useAuthStore from "./zustand/authStore";
+import { Toaster } from "@/components/ui/sonner";
+import { toast } from "sonner";
 
 export async function login(email: string, password: string): Promise<void> {
     const supabase = createClient();
@@ -19,10 +21,9 @@ export async function login(email: string, password: string): Promise<void> {
     }
 
     const user = data?.user;
-    console.log('Setting user before:', user);
     setUser(user);
-    console.log('Setting user after:', user);
     setLoading(false);
+    toast.success('Logged in successfully');
 }
 
 export async function signup(email: string, password: string): Promise<void> {
