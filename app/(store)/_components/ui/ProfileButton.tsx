@@ -8,13 +8,17 @@ import { Button } from "@/components/ui/button";
 import { CiUser } from "react-icons/ci";
 import Link from "next/link";
 import { useState } from "react";
-import useUser from "@/hooks/useUser";
-import { signout } from "@/lib/auth-actions";
+import useAuthStore from "@/lib/zustand/authStore";
 
 const ProfileButton = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const user = useUser();
-  const userName = user?.user_metadata.full_name.split(" ")[0];
+  const user = useAuthStore((state) => state.user);
+  // const signout = useAuthStore((state) => state.signout); // Pobranie funkcji signout z zustand
+
+  console.log("Current user:", user);
+
+  const userName = user?.email || "User";
+
   return (
     <Popover open={isOpen} onOpenChange={setIsOpen}>
       <PopoverTrigger>
@@ -37,7 +41,7 @@ const ProfileButton = () => {
             <Button
               onClick={() => {
                 setIsOpen(false);
-                signout();
+                // signout(); // Użycie funkcji signout
               }}
             >
               Logout
@@ -46,7 +50,6 @@ const ProfileButton = () => {
         ) : (
           <div className="space-y-3">
             <p className="text-neutral-500">
-              {/* to zmienic */}
               Become a{" "}
               <span className="text-black-primary font-semibold">
                 SneakPeak

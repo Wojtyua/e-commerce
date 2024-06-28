@@ -1,51 +1,51 @@
-import { create } from "zustand";
-import { login, signout, signup } from "../auth-actions";
+import {create} from 'zustand';
+import { createClient } from "@/utils/supabase/client";
+import { login as loginAction } from "@/lib/auth-actions";
 
 interface User {
-  id: string;
-  email?: string | null;
-  full_name?: string;
-  // Dodaj inne właściwości użytkownika, jeśli są
+    id: string;
+    email?: string | undefined;
 }
 
 interface AuthState {
-  user: User | null;
-  isLoading: boolean;
-  error: string | null;
+    user: User | null;
+    isLoading: boolean;
+    error: string | null;
 
-  setUser: (user: User | null) => void;
-  setLoading: (isLoading: boolean) => void;
-  setError: (error: string | null) => void;
-  clearState: () => void;
+    setUser: (user: User | null) => void;
+    setLoading: (isLoading: boolean) => void;
+    setError: (error: string | null) => void;
 
-  login: (formData: FormData) => Promise<void>;
-  signup: (formData: FormData) => Promise<void>;
-  signout: () => Promise<void>;
+    login: (email: string, password: string) => Promise<void>;
 }
 
 const useAuthStore = create<AuthState>((set) => ({
-  user: null,
-  isLoading: false,
-  error: null,
+    user: null,
+    isLoading: false,
+    error: null,
 
-  setUser: (user) => set({ user }),
-  setLoading: (isLoading) => set({ isLoading }),
-  setError: (error) => set({ error }),
+    setUser: (user) => {
+        console.log('Setting user in state:', user);
+        set({ user });
+    },
+    setLoading: (isLoading) => {
+        console.log('Setting loading state:', isLoading);
+        set({ isLoading });
+    },
+    setError: (error) => {
+        console.log('Setting error state:', error);
+        set({ error });
+    },
 
-  clearState: () => set({ user: null, isLoading: false, error: null }),
-
-  login: async (formData) => {
-    set({ isLoading: true, error: null });
-    await login(formData);
-  },
-  signup: async (formData) => {
-    set({ isLoading: true, error: null });
-    await signup(formData);
-  },
-  signout: async () => {
-    set({ isLoading: true, error: null });
-    await signout();
-  },
+    login: async (email, password) => {
+        set({ isLoading: true });
+        try {
+            console.log('Attempting to login');
+            await loginAction(email, password);
+        } catch (error: any) {
+            set({ error: error.message, isLoading: false });
+        }
+    }
 }));
 
 export default useAuthStore;

@@ -1,80 +1,26 @@
-"use server";
-
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@/utils/supabase/client";
 import useAuthStore from "./zustand/authStore";
 
-export async function login(formData: FormData): Promise<void> {
-  const supabase = createClient();
-  const data = {
-    email: formData.get("email") as string,
-    password: formData.get("password") as string,
-  };
+export async function login(email: string, password: string): Promise<void> {
+    const supabase = createClient();
+    const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+    });
 
-  const { data: authData, error } = await supabase.auth.signInWithPassword(data);
+    console.log('Supabase response:', { error, data });
 
-  const { setUser, setLoading, setError } = useAuthStore.getState();
+    const { setUser, setLoading, setError } = useAuthStore.getState();
 
-  if (error) {
-    setError(error.message);
+    if (error) {
+        setError(error.message);
+        setLoading(false);
+        return;
+    }
+
+    const user = data?.user;
+    console.log('Setting user before:', user);
+    setUser(user);
+    console.log('Setting user after:', user);
     setLoading(false);
-    redirect("/error");
-    return;
-  }
-
-  setUser(authData.user);
-  setLoading(false);
-  revalidatePath("/", "layout");
-  redirect("/");
-}
-
-export async function signup(formData: FormData): Promise<void> {
-  const supabase = createClient();
-  const firstName = formData.get("first-name") as string;
-  const lastName = formData.get("last-name") as string;
-  const data = {
-    email: formData.get("email") as string,
-    password: formData.get("password") as string,
-    options: {
-      data: {
-        full_name: `${firstName} ${lastName}`,
-        email: formData.get("email") as string,
-      },
-    },
-  };
-
-  const { data: authData, error } = await supabase.auth.signUp(data);
-
-  const { setUser, setLoading, setError } = useAuthStore.getState();
-
-  if (error) {
-    setError(error.message);
-    setLoading(false);
-    redirect("/error");
-    return;
-  }
-
-  setUser(authData.user);
-  setLoading(false);
-  revalidatePath("/", "layout");
-  redirect("/");
-}
-
-export async function signout(): Promise<void> {
-  const supabase = createClient();
-  const { error } = await supabase.auth.signOut();
-
-  const { clearState, setLoading, setError } = useAuthStore.getState();
-
-  if (error) {
-    setError(error.message);
-    setLoading(false);
-    redirect("/error");
-    return;
-  }
-
-  clearState();
-  setLoading(false);
-  redirect("/auth/logout");
 }
