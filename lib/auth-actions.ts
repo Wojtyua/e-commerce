@@ -1,6 +1,5 @@
 import { createClient } from "@/utils/supabase/client";
 import useAuthStore from "./zustand/authStore";
-import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
 
 export async function login(email: string, password: string): Promise<void> {
@@ -9,8 +8,6 @@ export async function login(email: string, password: string): Promise<void> {
         email,
         password
     });
-
-    console.log('Supabase response:', { error, data });
 
     const { setUser, setLoading, setError } = useAuthStore.getState();
 
@@ -23,7 +20,7 @@ export async function login(email: string, password: string): Promise<void> {
     const user = data?.user;
     setUser(user);
     setLoading(false);
-    toast.success('Logged in successfully');
+    toast.success('Logged in successfully!');
 }
 
 export async function signup(email: string, password: string): Promise<void> {
@@ -35,7 +32,7 @@ export async function signup(email: string, password: string): Promise<void> {
 
     console.log('Supabase response:', { error, data });
 
-    const { setUser, setLoading, setError } = useAuthStore.getState();
+    const { setLoading, setError } = useAuthStore.getState();
 
     if (error) {
         setError(error.message);

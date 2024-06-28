@@ -81,7 +81,7 @@ export function LoginForm() {
         </form>
         {error && <p className="mt-4 text-red-500">{error}</p>}
         <div className="mt-4 text-center text-sm">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <Link href="/auth/signup" className="underline">
             Sign up
           </Link>
