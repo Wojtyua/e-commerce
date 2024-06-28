@@ -1,6 +1,7 @@
 import useAuthStore from "@/lib/zustand/authStore";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { useRouter } from "next/navigation";
 
 const ProfileMessage = ({
   setState,
@@ -8,7 +9,8 @@ const ProfileMessage = ({
   setState?: (arg: boolean) => void;
 }) => {
   const user = useAuthStore((state) => state.user);
-  // const signout = useAuthStore((state) => state.signout); // Pobranie funkcji signout z zustand
+  const logout = useAuthStore((state) => state.logout);
+  const router = useRouter();
 
   const username = user?.user_metadata.full_name?.split(" ")[0] || "User";
   return (
@@ -24,8 +26,7 @@ const ProfileMessage = ({
           <Button
             onClick={() => {
               setState && setState(false);
-
-              // signout(); // Użycie funkcji signout
+              logout(() => router.push("/"));
             }}
           >
             Logout

@@ -27,9 +27,7 @@ export function LoginForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Submitting login form");
     await login(email, password, () => router.push("/"));
-    console.log("Login form submitted");
   };
 
   return (
@@ -58,12 +56,6 @@ export function LoginForm() {
             <div className="grid gap-2">
               <div className="flex items-center">
                 <Label htmlFor="password">Password</Label>
-                <Link
-                  href="#"
-                  className="ml-auto inline-block text-sm underline"
-                >
-                  Forgot your password?
-                </Link>
               </div>
               <Input
                 id="password"

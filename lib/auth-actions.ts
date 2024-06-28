@@ -44,3 +44,20 @@ export async function signup(email: string, password: string): Promise<void> {
     // Automatyczne logowanie po rejestracji
     await login(email, password);
 }
+
+export async function logout(): Promise<void> {
+    const supabase = createClient();
+    const { error } = await supabase.auth.signOut();
+
+    const { setUser, setLoading, setError } = useAuthStore.getState();
+
+    if (error) {
+        setError(error.message);
+        setLoading(false);
+        throw new Error(error.message); // Rzuć błąd, aby obsłużyć go w zustand
+    }
+
+    setUser(null);
+    setLoading(false);
+    toast.success('Logged out successfully!');
+}

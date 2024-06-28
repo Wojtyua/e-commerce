@@ -1,6 +1,6 @@
 import {create} from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
-import { login as loginAction, signup as signupAction } from "@/lib/auth-actions";
+import { login as loginAction, signup as signupAction, logout as logoutAction} from "@/lib/auth-actions";
 
 
 interface User_metadata {
@@ -23,7 +23,7 @@ interface AuthState {
 
     login: (email: string, password: string, redirect: () => void) => Promise<void>;
     signup: (email: string, password: string, redirect: () => void) => Promise<void>;
-    logout: () => void;
+    logout: (redirect: () => void) => Promise<void>;
 }
 
 const useAuthStore = create<AuthState>()(
@@ -49,7 +49,6 @@ const useAuthStore = create<AuthState>()(
             login: async (email, password, redirect) => {
                 set({ isLoading: true });
                 try {
-                    console.log('Attempting to login');
                     await loginAction(email, password);
                     redirect();
                 } catch (error: any) {
@@ -66,8 +65,15 @@ const useAuthStore = create<AuthState>()(
                     set({ error: error.message, isLoading: false });
                 }
             },
-            logout: () => {
-                set({ user: null });
+            logout: async (redirect) => {
+                set({ isLoading: true });
+                try {
+                    await logoutAction();
+                    set({ isLoading: false, error: null });
+                    redirect();
+                } catch (error: any) {
+                    set({ error: error.message, isLoading: false });
+                }
             }
         }),
         {
