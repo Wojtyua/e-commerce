@@ -14,12 +14,13 @@ export async function login(email: string, password: string): Promise<void> {
     if (error) {
         setError(error.message);
         setLoading(false);
-        return;
+        throw new Error(error.message)
     }
 
     const user = data?.user;
     setUser(user);
     setLoading(false);
+    setError(null);
     toast.success('Logged in successfully!');
 }
 
