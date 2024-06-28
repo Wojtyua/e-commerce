@@ -2,7 +2,7 @@
 
 import { getProductById, FormattedProduct } from "@/utils/getProductById";
 import { useQuery } from "@tanstack/react-query";
-import useCartStore from "@/lib/store";
+import useCartStore from "@/lib/zustand/cartStore";
 
 import ProductHeader from "../_components/ProductHeader";
 import AddToCartButton from "../../_components/ui/AddToCartButton";

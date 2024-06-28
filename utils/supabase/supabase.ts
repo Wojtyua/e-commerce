@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-import { Database } from "@/types/supabase.types";
+import { Database } from "@/types/supabase.types"; 
 const supabaseUrl = "https://jjsxonvnqwdwhjqmqihm.supabase.co";
 // this is a public key, so it's safe to expose it here
 const supabaseKey =

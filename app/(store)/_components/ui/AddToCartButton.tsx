@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import useCartStore from "@/lib/store";
+import useCartStore from "@/lib/zustand/cartStore";
 import { CartItem } from "@/types/store.types";
 
 import { PiShoppingBagLight } from "react-icons/pi";

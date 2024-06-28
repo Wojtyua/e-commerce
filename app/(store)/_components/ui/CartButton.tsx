@@ -1,4 +1,4 @@
-import useCartStore from "@/lib/store";
+import useCartStore from "@/lib/zustand/cartStore";
 import { PiShoppingBagLight } from "react-icons/pi";
 import {
   Drawer,

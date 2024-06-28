@@ -28,14 +28,17 @@ export type Database = {
         Row: {
           id: number
           image_url: string
+          label: string | null
         }
         Insert: {
           id?: number
           image_url: string
+          label?: string | null
         }
         Update: {
           id?: number
           image_url?: string
+          label?: string | null
         }
         Relationships: []
       }
