@@ -1,10 +1,9 @@
 import {create} from 'zustand';
-import { createClient } from "@/utils/supabase/client";
 import { login as loginAction } from "@/lib/auth-actions";
 
 interface User {
     id: string;
-    email?: string | undefined;
+    email?: string | null;
 }
 
 interface AuthState {

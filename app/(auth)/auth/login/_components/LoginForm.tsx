@@ -25,9 +25,13 @@ export function LoginForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("email", email);
+    formData.append("password", password);
+
     console.log("Submitting login form");
     await login(email, password);
-    console.log("Login form submitted");
   };
 
   return (
